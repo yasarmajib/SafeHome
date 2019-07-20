@@ -4,7 +4,7 @@
 sudo apt-get update -y
 sudo apt-get upgrade -y
 #Download Git
-sudo apt-get install git -y
+#sudo apt-get install git -y
 #Install OpenHAB
 sudo apt-get install openhab2 -y
 #Install IPTables-Persistant
