@@ -2,27 +2,27 @@
 
 #Update RaspberryPi
 echo "Updating Repositories"
-sudo apt-get update -y
+sudo apt-get update -q -y
 echo "Updating System"
-sudo apt-get upgrade -y
+sudo apt-get upgrade -q -y
 #=============================
 #Download Git
 #echo "Downloading Git"
-#sudo apt-get install git -y
+#sudo apt-get install git -q -y
 #=============================
 #Install OpenHAB
 #echo "Installing OpenHAB"
-#sudo apt-get install openhab2 -y
+#sudo apt-get install openhab2 -q -y
 #=============================
 #Insatll DHCP Server
 echo "Installing DHCP Server"
-sudo apt-get install isc-dhcp-server -y
+sudo apt-get install isc-dhcp-server -q -y
 #Install DNS Server
 echo "Installing DNS Server"
-sudo apt-get install bind9 bind9utils dnsutils -y
+sudo apt-get install bind9 bind9utils dnsutils -q -y
 #Install Apache2 Server
 echo "Installing Apache Server"
-sudo apt-get install apache2 -y
+sudo apt-get install apache2 -q -y
 
 #Adding New Interface and assign new IP Address
 echo "Configuring Network"
@@ -81,6 +81,11 @@ sudo apt-get install iptables-persistent -q -y
 #Restarting Networking Services
 echo "Restarting Networking Services"
 sudo service networking Restarting
+
+#Let's Block Bad Sites...
+echo "Blocking BAD Sites..."
+sudo cp named.conf.options /etc/bind/
+
 #Rebooting System
 echo "Rebooting Pi"
 sudo reboot
